@@ -1,0 +1,49 @@
+
+{{#if removedUser}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  User has been removed.
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+
+<div class="row">
+    <div class="col-6">
+        <h1>Users</h1>
+    </div>
+    <div class="col-6 d-flex justify-content-end">
+        <a href="/adduser" type="button" class="btn btn-primary align-self-center">Add User</a>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead class="thread-dark">
+        <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">phone</th>
+            <th scope="col">password</th>
+            <th scope="col" class="text-end">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each rows}}
+        <tr>
+            <th scope="row">{{this.id}}</th>
+            <td>{{this.name}}</td>
+            <td>{{this.email}}</td>
+            <td>{{this.password}}</td>
+            <td>{{this.phone}}</td>
+            
+            <td>
+                <a href="/viewuser/{{this.id}}" type="button" class='btn btn-light btn-small'><i class="bi bi-eye">View</i></a>
+                <a href="/edituser/{{this.id}}" type="button" class='btn btn-light btn-small'><i class="bi bi-pencil">Edit</i></a>
+                <a href="/{{this.id}}" type="button" class='btn btn-light btn-small'><i class="bi bi-person-x">Delete</i></a>
+            </td>
+        </tr>
+        <tr>
+        {{/each}}
+    </tbody>
+</table>
